@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "genshield"
+version = "1.0.0"
+description = "GenShield: generation-time unsafe-content detection for text-to-image diffusion models"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+dependencies = [
+    "torch>=2.0",
+    "torchvision",
+    "diffusers>=0.27",
+    "transformers",
+    "accelerate",
+    "numpy",
+    "scikit-learn",
+    "matplotlib",
+    "pyyaml",
+    "tqdm",
+    "pillow",
+]
+
+[project.optional-dependencies]
+data = ["openai>=1.0", "datasets"]
+baselines = ["nudenet"]
+dev = ["pytest"]
+
+[tool.setuptools]
+packages = ["genshield"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

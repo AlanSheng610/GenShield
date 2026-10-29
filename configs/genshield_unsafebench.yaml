@@ -1,0 +1,36 @@
+# GenShield for post-generation assessment on UnsafeBench (Table 3).
+# The UnsafeBench train split is added to training to cover real-world images;
+# all UnsafeBench latents are obtained by DDIM inversion (scripts/invert_images.py).
+
+data_root: data
+concepts_path: data/embeddings/concepts.pt
+timesteps_path: data/embeddings/timesteps.pt
+concepts: [hate, harassment, violence, self_harm, sexual, shocking, illegal_activity]
+
+model:
+  nhead: 8
+  dropout: 0.1
+
+train:
+  output_dir: checkpoints/genshield_unsafebench
+  safe: [normal, "gen_{concept}_safe", "unsafebench_safe_{concept}"]
+  unsafe: ["gen_{concept}_unsafe", "unsafebench_unsafe_{concept}"]
+  steps: [0, 50]
+  batch_size: 512
+  lr: 1.0e-4
+  epochs: 5
+  temperature: 0.07
+  num_workers: 8
+  seed: 42
+
+eval:
+  output_dir: results/genshield_unsafebench
+  threshold: 0.9
+  suites:
+    - {name: unsafebench_unsafe_hate, concept: hate, safe: unsafebench_safe_hate}
+    - {name: unsafebench_unsafe_harassment, concept: harassment, safe: unsafebench_safe_harassment}
+    - {name: unsafebench_unsafe_violence, concept: violence, safe: unsafebench_safe_violence}
+    - {name: unsafebench_unsafe_self_harm, concept: self_harm, safe: unsafebench_safe_self_harm}
+    - {name: unsafebench_unsafe_sexual, concept: sexual, safe: unsafebench_safe_sexual}
+    - {name: unsafebench_unsafe_shocking, concept: shocking, safe: unsafebench_safe_shocking}
+    - {name: unsafebench_unsafe_illegal_activity, concept: illegal_activity, safe: unsafebench_safe_illegal_activity}

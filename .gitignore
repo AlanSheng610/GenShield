@@ -1,0 +1,42 @@
+# Data, latents, checkpoints and outputs: large and/or contain unsafe content
+data/
+checkpoints/
+results/
+outputs/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.npz
+*.png
+*.jpg
+*.jpeg
+*.webp
+!assets/**
+
+# Papers and logs
+*.pdf
+*.log
+
+# Original research code (local backup only)
+legacy/
+
+# Secrets
+.env
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
