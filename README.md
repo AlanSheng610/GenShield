@@ -1,7 +1,6 @@
 # GenShield: Generation-Time Defense for Text-to-Image Diffusion Models
 
-<!-- TODO: fill in authors, venue and links -->
-**[Authors]** · **[Venue 2025]** · [[Paper]](TODO) · [[arXiv]](TODO)
+📄 [Paper (PDF)](paper/GenShield.pdf)
 
 GenShield detects unsafe content (sexual, violence, hate, ...) **while a diffusion model is still generating**,
 so harmful generations can be stopped after a few denoising steps instead of being filtered after the fact.
@@ -190,17 +189,6 @@ tests/
 This repository is for building defenses. The prompt-generation script asks an LLM to write unsafe captions
 and the extraction scripts render them, so generated data may contain harmful imagery. Keep it out of version
 control (`data/` is git-ignored) and handle it according to your institution's policies.
-
-## Citation
-
-```bibtex
-@inproceedings{genshield2025,
-  title     = {GenShield: Generation-Time Defense for Text-to-Image Diffusion Models},
-  author    = {TODO},
-  booktitle = {TODO},
-  year      = {2025}
-}
-```
 
 ## License
 

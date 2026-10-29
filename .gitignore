@@ -16,6 +16,7 @@ outputs/
 
 # Papers and logs
 *.pdf
+!paper/GenShield.pdf
 *.log
 
 # Original research code (local backup only)
